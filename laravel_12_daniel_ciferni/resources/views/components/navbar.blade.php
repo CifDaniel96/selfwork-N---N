@@ -7,6 +7,7 @@
         <div class="ms-auto d-flex gap-2">
             <a href="{{route ('articles.index')}}" class="btn btn-outline-dark rounded-pill px-4">Articoli</a>
             <a href="{{route ('articles.create')}}" class="btn btn-travel rounded-pill px-4">Nuovo articolo</a>
+            <a href="{{ route('tags.create') }}" class="btn btn-travel rounded-pill px-4">Crea Nuovo Tag</a>
         </div>
     </div>
 </nav>

@@ -10,7 +10,7 @@ class ArticleController extends Controller
 {
     public function index()
     {
-        $articles = Article::all();
+        $articles = Article::with('tags')->get();
         return view('articles.index', compact('articles'));
     }
 
@@ -60,5 +60,11 @@ class ArticleController extends Controller
         $article->tags()->sync($request->tags ?? []);
 
         return redirect()->route('articles.show', $article);
+    }
+
+    public function destroy(Article $article){
+        $article->delete();
+        return redirect()->route('articles.index')
+            ->with('success', 'Articolo eliminato con successo');
     }
 }

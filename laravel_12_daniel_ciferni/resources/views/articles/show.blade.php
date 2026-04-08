@@ -4,6 +4,7 @@
         <a href="{{ route('articles.index') }}" class="btn btn-outline-dark mb-3">
             ← Indietro
         </a>
+ 
 
         <div class="card p-4 shadow-sm">
             <h1 class="mb-3">{{ $article->title }}</h1>
@@ -29,6 +30,15 @@
                     Modifica
                 </a>
             </div>
+             <div class="mt-4">
+                    <form method="POST" action="{{ route('articles.destroy', $article) }}">
+                        @csrf
+                        @method('DELETE')
+                        <button class="btn btn-outline-danger">
+                            Elimina articolo
+                        </button>
+                    </form>
+                </div>
         </div>
 
     </div>
